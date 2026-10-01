@@ -1,0 +1,5 @@
+*.fig
+archive/
+https_/
+.claude/
+.DS_Store
