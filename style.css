@@ -719,7 +719,7 @@
 .footer_col { width: 14rem; }
 .footer_col.is-auto { width: auto; flex: 1 1 0; }
 .footer_col.is-wide { width: 42.9375rem; }
-.footer_groups { margin-top: var(--_spacing---static--spacing-8); }
+.footer_groups { row-gap: var(--_spacing---static--spacing-8); margin-top: var(--_spacing---static--spacing-8); }
 .footer_group { width: 10.875rem; }
 .footer_group.is-services { width: 14rem; }
 .footer_group:last-child { width: auto; }
