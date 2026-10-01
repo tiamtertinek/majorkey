@@ -310,7 +310,8 @@
   position: relative;
   flex: 1 1 0;
   min-width: 0;
-  min-height: 33.75rem;
+  align-self: flex-start;
+  height: 33.75rem;
   overflow: clip;
   border-radius: var(--rounding--xl);
   background-color: var(--_color---bg--default--bg);
@@ -328,8 +329,8 @@
 .framework_wheel_svg.is-selecting .framework_wheel_segment { opacity: 0.28; }
 .framework_wheel_svg.is-selecting .framework_wheel_segment.is-active {
   opacity: 1;
-  transform: scale(1.04);
-  filter: drop-shadow(0 0.5rem 1rem color-mix(in srgb, var(--_color---text--brand--1) 35%, transparent));
+  transform: scale(1.02);
+  filter: drop-shadow(0 0.25rem 0.5rem color-mix(in srgb, var(--_color---text--brand--1) 14%, transparent));
 }
 .framework_wheel_segment:hover { opacity: 0.85; }
 
@@ -775,7 +776,7 @@
 
   .scenarios_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .framework_body { flex-direction: column-reverse; }
-  .framework_visual_wrap { min-height: 26rem; }
+  .framework_visual_wrap { align-self: stretch; height: 26rem; }
   .services_list { grid-template-columns: minmax(0, 1fr); margin-inline: 0; }
   .industries_layout { flex-direction: column; }
   .testimonial_card_wrap { width: 100%; min-height: 0; }
