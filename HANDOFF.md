@@ -35,7 +35,7 @@ Working from core-template token structure, re-valued to MajorKey. Colours and f
 - Newsletter form: validation and success/error states are wired visually; **submission is not wired** — hook to HubSpot as today.
 
 ## Motion (script.js)
-Block 1 (simple, IX3-convertible): nav + hero entrance, hero media settle + parallax, scroll reveals, card staggers, surface lift, resource image zoom. Block 2 (custom): SplitText hero line mask, count-up stats, stacking-card body fade, logo marquee (clones the real items at runtime).
+Block 1 (simple, IX3-convertible): nav + hero entrance, hero media parallax, scroll reveals, card staggers, surface lift. No image zoom effects anywhere. Block 2 (custom): SplitText hero line mask, count-up stats, stacking-card body fade (cards share one release line so they leave together), logo marquee (clones the real items at runtime).
 
 ## Exceptions (custom code the developer carries)
 1. Card grids (`scenarios_list`, `services_list`, `tools_list`, `industries_stats`) — CSS grid; no grid utilities exist (step 6).

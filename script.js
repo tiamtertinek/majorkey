@@ -68,7 +68,7 @@ function initTabs() {
         var panel = panels[index];
         gsap.fromTo(panel.querySelectorAll(".success_panel_title, .success_panel_text, .success_panel_content .button_main_wrap, .success_panel_meta"),
           { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.06, ease: "power3.out" });
-        gsap.fromTo(panel.querySelector(".success_panel_img"), { scale: 1.08, opacity: 0 }, { scale: 1, opacity: 0.32, duration: 1, ease: "power2.out" });
+        gsap.fromTo(panel.querySelector(".success_panel_img"), { opacity: 0 }, { opacity: 0.32, duration: 0.8, ease: "power2.out" });
       }
     }
 
@@ -226,8 +226,7 @@ function initMotion() {
     hero.from(".home_hero_section [data-reveal], .page_hero_section [data-reveal]", { y: 32, opacity: 0, duration: 1, stagger: 0.1 }, 0.45);
     hero.from(".home_hero_stat", { y: 32, opacity: 0, duration: 1, stagger: 0.1 }, 0.75);
 
-    /* Hero media: slow settle + scroll parallax */
-    gsap.fromTo("[data-hero-media]", { scale: 1.22 }, { scale: 1.1, duration: 2.2, ease: "power2.out" });
+    /* Hero media: scroll parallax */
     gsap.to("[data-hero-media]", {
       yPercent: 12, ease: "none",
       scrollTrigger: { trigger: ".home_hero_section, .page_hero_section", start: "top top", end: "bottom top", scrub: true },
@@ -246,13 +245,9 @@ function initMotion() {
 
     /* Section surfaces lift in */
     gsap.utils.toArray(".framework_section, .industries_section, .success_section, .cta_section, .testimonial_section, .logos_section").forEach(function (el) {
-      gsap.from(el, { y: 60, scale: 0.98, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 95%" } });
+      gsap.from(el, { y: 60, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 95%" } });
     });
 
-    /* Resource card images */
-    gsap.utils.toArray(".resource_card_img").forEach(function (img) {
-      gsap.from(img, { scale: 1.2, duration: 1.4, ease: "power2.out", scrollTrigger: { trigger: img, start: "top 90%" } });
-    });
   });
 
   /* Reduced motion: no scroll or entrance motion — content is simply present. */
@@ -298,10 +293,6 @@ function initMotionAdvanced(mm) {
       gsap.to(card.querySelector("[data-stack-body]"), {
         opacity: 0, y: -24, ease: "none",
         scrollTrigger: { trigger: next, start: "top 70%", end: "top 35%", scrub: true },
-      });
-      gsap.to(card.querySelector("[data-stack-img]"), {
-        scale: 1.08, ease: "none",
-        scrollTrigger: { trigger: next, start: "top 90%", end: "top 30%", scrub: true },
       });
     });
   });
