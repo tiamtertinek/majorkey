@@ -114,14 +114,16 @@
 .nav_component.is-scrolled {
   position: fixed;
   padding-block: var(--_spacing---static--spacing-3);
+}
+/* scrolled: the bar wraps the content row only (logo → button), not the full width */
+.nav_component.is-scrolled .nav_layout {
+  margin-inline: calc(-1 * var(--_spacing---static--spacing-3));
+  padding: var(--_spacing---static--spacing-3);
   border-radius: var(--rounding--md);
   background-color: var(--_color---bg--inverted--bg);
   box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--_color---bg--inverted--1) 35%, transparent);
   animation: nav_bg_in 0.4s ease;
 }
-.nav_contain { transition: padding 0.35s ease; }
-.nav_component.is-scrolled .nav_contain { padding-inline: var(--_spacing---static--spacing-3) var(--_spacing---static--spacing-3); }
-.nav_component.is-scrolled .nav_logo_link { padding-left: var(--_spacing---static--spacing-3); }
 @keyframes nav_bg_in {
   from { background-color: transparent; box-shadow: none; }
 }
