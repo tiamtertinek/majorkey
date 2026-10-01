@@ -26,7 +26,7 @@ function initNav() {
     var toggle = nav.querySelector("[data-nav-toggle]");
     var menu = nav.querySelector("[data-nav-menu]");
 
-    function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 120); }
+    function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 40); }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 

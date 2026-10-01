@@ -101,7 +101,7 @@
    NAV
    -------------------------------------------------------------------------- */
 .nav_component {
-  position: absolute;
+  position: fixed;
   z-index: 50;
   top: var(--_spacing---static--spacing-2-5);
   left: var(--_spacing---static--spacing-2-5);
@@ -109,23 +109,23 @@
   padding-top: var(--_spacing---static--spacing-8);
   color: var(--_color---text--inverted--1);
   border-radius: var(--rounding--xl);
-  transition: background-color 0.35s ease, padding 0.35s ease, box-shadow 0.35s ease;
+  transition: padding 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.nav_component.is-scrolled {
-  position: fixed;
-  padding-block: var(--_spacing---static--spacing-3);
+.nav_component.is-scrolled { padding-block: var(--_spacing---static--spacing-3); }
+/* bar wraps the content row only; every property eases in and out */
+.nav_layout {
+  margin-inline: 0;
+  padding: 0;
+  border-radius: var(--rounding--md);
+  background-color: transparent;
+  box-shadow: 0 0.75rem 2rem transparent;
+  transition: background-color 0.6s ease, box-shadow 0.6s ease, padding 0.6s cubic-bezier(0.22, 1, 0.36, 1), margin 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
-/* scrolled: the bar wraps the content row only (logo → button), not the full width */
 .nav_component.is-scrolled .nav_layout {
   margin-inline: calc(-1 * var(--_spacing---static--spacing-3));
   padding: var(--_spacing---static--spacing-3);
-  border-radius: var(--rounding--md);
   background-color: var(--_color---bg--inverted--bg);
   box-shadow: 0 0.75rem 2rem color-mix(in srgb, var(--_color---bg--inverted--1) 35%, transparent);
-  animation: nav_bg_in 0.4s ease;
-}
-@keyframes nav_bg_in {
-  from { background-color: transparent; box-shadow: none; }
 }
 .nav_layout { min-height: 2.75rem; }
 .nav_logo_link { display: block; }
@@ -417,7 +417,7 @@
    HOME / PRODUCTS — tools groups
    -------------------------------------------------------------------------- */
 .tools_layout { gap: var(--_spacing---static--spacing-16); }
-.tools_group { gap: var(--_spacing---static--spacing-4); }
+.tools_group { gap: var(--_spacing---static--spacing-6); }
 .tools_group + .tools_group { margin-top: var(--_spacing---static--spacing-8); }
 .tools_group_head { gap: var(--_spacing---gap--gap-sm); }
 .tools_group_title { color: var(--_color---text--default--1); }
