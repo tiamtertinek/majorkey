@@ -578,7 +578,18 @@
 /* --------------------------------------------------------------------------
    SHARED — resources slider
    -------------------------------------------------------------------------- */
-.resources_layout { gap: var(--_spacing---static--spacing-16); }
+.resources_layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas: "title nav" "slider slider" "footer footer";
+  align-items: center;
+  column-gap: var(--_spacing---gap--gap-lg);
+  row-gap: var(--_spacing---static--spacing-16);
+}
+.resources_title { grid-area: title; }
+.resources_slider_nav { grid-area: nav; }
+.resources_slider { grid-area: slider; }
+.resources_footer { grid-area: footer; }
 .resources_title { color: var(--_color---text--default--1); }
 .resources_slider_nav { flex-shrink: 0; gap: var(--_spacing---static--spacing-1-5); }
 .resources_slider_dot {
@@ -800,10 +811,20 @@
    MOBILE LANDSCAPE — max-width 767px (native breakpoint)
    ========================================================================== */
 @media (max-width: 767px) {
+  /* resources: cards run to the screen edge, dots move under the cards */
+  .resources_layout { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "slider" "nav" "footer"; row-gap: var(--_spacing---static--spacing-8); }
+  .resources_slider_nav { justify-content: center; }
+  .resources_footer { margin-top: 0; }
+  .resources_slider { overflow: visible; }
+  /* standalone buttons go full width */
+  .tools_group_head .button_main_wrap, .framework_head .button_main_wrap, .resources_footer .button_main_wrap { width: 100%; }
+  .tools_group_head .button_main_element, .framework_head .button_main_element, .resources_footer .button_main_element { width: 100%; }
+  /* capabilities wheel gets breathing room */
+  .framework_visual_wrap { height: auto; padding-block: var(--_spacing---static--spacing-12); }
   .logos_fade { width: 4rem; }
   .home_hero_section { min-height: 0; }
   .scenarios_list, .tools_list, .tools_list.is-two { grid-template-columns: minmax(0, 1fr); }
-  .framework_head, .tools_group_head, .resources_head { flex-direction: column; align-items: flex-start; }
+  .framework_head, .tools_group_head { flex-direction: column; align-items: stretch; }
   .framework_item_body { padding-left: var(--_spacing---static--spacing-7); }
   .framework_visual_img { width: 16rem; }
   .industries_stats { gap: var(--_spacing---static--spacing-8) var(--_spacing---static--spacing-4); }

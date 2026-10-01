@@ -29,6 +29,8 @@ Working from core-template token structure, re-valued to MajorKey. Colours and f
 - **Framework wheel** is an inline SVG; each segment path carries `framework_wheel_segment` + `data-fw-segment="1-5"`. JS adds `is-selecting` on the SVG and `is-active` on the matching segment (parent-state descendant CSS — embed). Clicking a segment opens its tab.
 - **Customer success panels** share one grid cell (`success_panels` is grid, each `success_panel` is `grid-area: 1/1`), so the section height is locked to the tallest story; inactive panels are `visibility: hidden` + `inert`.
 - **Customer success photo** fills the full section height: the section is the positioning context (`isolation: isolate`), the image sits behind content at `z-index: -1`.
+- **Resources layout** is a 2-column grid (title | dots, then slider, then footer). On mobile it becomes one column with the dots under the cards, and the slider runs to the screen edge (`overflow: visible`, clipped by `page_wrap`).
+- **Mobile buttons:** section-level buttons (View all…, Explore all capabilities) go full width at ≤767px.
 - **Logo band edge fades:** two decorative `logos_fade` divs (`is-start` / `is-end`) inside `logos_marquee`, gradient from the band colour (`bg--default--1`) to transparent; the row is full-bleed (`u-container-0`).
 - **Combo placeholders** kept in `*_hidden` blocks: `nav_component.is-scrolled`, `nav_menu.is-open`, `success_tab.is-active`, `success_panel.is-active`, `resources_slider_dot.is-active`.
 - **GSAP plugins to enable** in Webflow's built-in integration: ScrollTrigger. Remove the CDN `<script>` tags — they exist only for the local preview. Reduced motion is respected: with `prefers-reduced-motion`, no motion runs.
