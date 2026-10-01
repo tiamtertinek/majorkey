@@ -341,8 +341,7 @@
 .services_list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--_spacing---gap--gap-md);
-  margin-inline: calc(-1 * var(--_spacing---static--spacing-7));
+  gap: var(--_spacing---gap--gap-lg);
 }
 .service_card_wrap {
   position: relative;
@@ -415,15 +414,15 @@
 /* --------------------------------------------------------------------------
    HOME / PRODUCTS — tools groups
    -------------------------------------------------------------------------- */
-.tools_layout { gap: var(--_spacing---static--spacing-8); }
+.tools_layout { gap: var(--_spacing---static--spacing-16); }
 .tools_group { gap: var(--_spacing---static--spacing-5); }
-.tools_group + .tools_group { margin-top: var(--_spacing---static--spacing-12); }
+.tools_group + .tools_group { margin-top: 0; }
 .tools_group_head { gap: var(--_spacing---gap--gap-sm); }
 .tools_group_title { color: var(--_color---text--default--1); }
 .tools_list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--_spacing---gap--gap-sm);
+  gap: var(--_spacing---gap--gap-lg);
 }
 .tools_list.is-two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .tools_list.is-two .feature_card_wrap.is-product { min-height: 12.9375rem; }
@@ -471,7 +470,7 @@
 /* --------------------------------------------------------------------------
    CAPABILITIES — stacking cards
    -------------------------------------------------------------------------- */
-.stack_layout { gap: var(--_spacing---static--spacing-20); }
+.stack_layout { gap: var(--_spacing---static--spacing-16); }
 .stack_list { display: flex; flex-direction: column; }
 .stack_card_wrap {
   position: sticky;
@@ -569,7 +568,7 @@
 /* --------------------------------------------------------------------------
    SHARED — resources slider
    -------------------------------------------------------------------------- */
-.resources_layout { gap: var(--_spacing---static--spacing-12); }
+.resources_layout { gap: var(--_spacing---static--spacing-16); }
 .resources_title { color: var(--_color---text--default--1); }
 .resources_slider_nav { flex-shrink: 0; gap: var(--_spacing---static--spacing-1-5); }
 .resources_slider_dot {
@@ -777,7 +776,7 @@
   .scenarios_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .framework_body { flex-direction: column-reverse; }
   .framework_visual_wrap { align-self: stretch; height: 26rem; }
-  .services_list { grid-template-columns: minmax(0, 1fr); margin-inline: 0; }
+  .services_list { grid-template-columns: minmax(0, 1fr); }
   .industries_layout { flex-direction: column; }
   .testimonial_card_wrap { width: 100%; min-height: 0; }
   .tools_list { grid-template-columns: repeat(2, minmax(0, 1fr)); }

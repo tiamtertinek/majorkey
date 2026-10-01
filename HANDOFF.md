@@ -49,7 +49,7 @@ Block 1 (simple, IX3-convertible): nav + hero entrance, hero media settle + para
 - Nav logo uses the real MajorKey logo instead of the placeholder square mark in the design.
 - Type, spacing and radius snap to the re-valued scale, so some values sit a few px off the PNG.
 - Framework and stack dot colours snap to the brand colour family (5 shades → 4 variables).
-- The Services cards on the homepage keep the design's slight overhang past the gutter; the capability stack stays inside the gutter (the file's divider overhangs by ~2rem).
+- All card rows align to the page gutter and share one card gap (`gap-lg`); the design's Services overhang and the capability divider overhang were dropped.
 - Customer-success copy for tabs 2–5 was shortened from the live site to match the new layout — **placeholder, confirm with MajorKey**. Same for home resource card titles.
 
 ## Links
