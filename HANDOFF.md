@@ -31,12 +31,11 @@ Working from core-template token structure, re-valued to MajorKey. Colours and f
 - **Customer success photo** fills the full section height: the section is the positioning context (`isolation: isolate`), the image sits behind content at `z-index: -1`.
 - **Logo band edge fades:** two decorative `logos_fade` divs (`is-start` / `is-end`) inside `logos_marquee`, gradient from the band colour (`bg--default--1`) to transparent; the row is full-bleed (`u-container-0`).
 - **Combo placeholders** kept in `*_hidden` blocks: `nav_component.is-scrolled`, `nav_menu.is-open`, `success_tab.is-active`, `success_panel.is-active`, `resources_slider_dot.is-active`.
-- **GSAP plugins to enable** in Webflow's built-in integration: ScrollTrigger, SplitText. Remove the CDN `<script>` tags — they exist only for the local preview. Reduced motion is respected: with `prefers-reduced-motion`, no motion runs.
+- **GSAP plugins to enable** in Webflow's built-in integration: ScrollTrigger. Remove the CDN `<script>` tags — they exist only for the local preview. Reduced motion is respected: with `prefers-reduced-motion`, no motion runs.
 - Newsletter form: validation and success/error states are wired visually; **submission is not wired** — hook to HubSpot as today.
 
 ## Motion (script.js)
-Block 1 (simple, IX3-convertible): nav + hero entrance, hero media parallax, scroll reveals, card staggers, surface lift. No image zoom effects anywhere. Block 2 (custom): SplitText hero line mask, count-up stats, stacking-card body fade (cards share one release line so they leave together), logo marquee (clones the real items at runtime).
-
+Block 1 (simple, IX3-convertible): hero media parallax only. There are no scroll-in or entrance reveals — every section is static on load. 
 ## Exceptions (custom code the developer carries)
 1. Card grids (`scenarios_list`, `services_list`, `tools_list`, `industries_stats`) — CSS grid; no grid utilities exist (step 6).
 2. Button Main hover/active on the inner element (`.button_main_wrap.is-*:hover .button_main_element`) — parent-state descendant; ties into the template's `data-trigger` hover system (step 5 failed).

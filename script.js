@@ -1,6 +1,6 @@
 /* ==========================================================================
    MajorKey — behaviour + motion
-   On Webflow: GSAP core + ScrollTrigger + SplitText come from the built-in
+   On Webflow: GSAP core + ScrollTrigger come from the built-in
    GSAP integration (the CDN tags in the HTML are for the local preview only).
    Swiper comes from the template's Swiper CSS / Swiper JS code components.
    JS toggles classes/attributes only; it never authors styles.
@@ -67,7 +67,7 @@ function initTabs() {
       if (window.gsap) {
         var panel = panels[index];
         gsap.fromTo(panel.querySelectorAll(".success_panel_title, .success_panel_text, .success_panel_content .button_main_wrap, .success_panel_meta"),
-          { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, stagger: 0.06, ease: "power3.out" });
+          { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.04, ease: "power2.out" });
         gsap.fromTo(panel.querySelector(".success_panel_img"), { opacity: 0 }, { opacity: 0.32, duration: 0.8, ease: "power2.out" });
       }
     }
@@ -216,36 +216,14 @@ function initMarquee() {
    ========================================================================== */
 function initMotion() {
   if (!window.gsap) return;
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger);
   var mm = gsap.matchMedia();
 
   mm.add("(prefers-reduced-motion: no-preference)", function () {
-    /* Hero entrance */
-    var hero = gsap.timeline({ defaults: { ease: "power4.out" }, delay: 0.1 });
-    hero.from(".nav_component", { y: -24, opacity: 0, duration: 0.8 }, 0);
-    hero.from(".home_hero_section [data-reveal], .page_hero_section [data-reveal]", { y: 32, opacity: 0, duration: 1, stagger: 0.1 }, 0.45);
-    hero.from(".home_hero_stat", { y: 32, opacity: 0, duration: 1, stagger: 0.1 }, 0.75);
-
     /* Hero media: scroll parallax */
     gsap.to("[data-hero-media]", {
       yPercent: 12, ease: "none",
       scrollTrigger: { trigger: ".home_hero_section, .page_hero_section", start: "top top", end: "bottom top", scrub: true },
-    });
-
-    /* Single reveals (outside hero) */
-    gsap.utils.toArray("main [data-reveal], .cta_section [data-reveal]").forEach(function (el) {
-      if (el.closest(".home_hero_section, .page_hero_section")) return;
-      gsap.from(el, { y: 40, opacity: 0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 88%" } });
-    });
-
-    /* Group reveals: children stagger */
-    gsap.utils.toArray("[data-reveal-group]").forEach(function (group) {
-      gsap.from(group.children, { y: 48, opacity: 0, duration: 1, stagger: 0.08, ease: "power3.out", scrollTrigger: { trigger: group, start: "top 85%" } });
-    });
-
-    /* Section surfaces lift in */
-    gsap.utils.toArray(".framework_section, .industries_section, .success_section, .cta_section, .testimonial_section, .logos_section").forEach(function (el) {
-      gsap.from(el, { y: 60, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 95%" } });
     });
 
   });
@@ -256,23 +234,10 @@ function initMotion() {
 }
 
 /* ==========================================================================
-   MOTION — block 2: SplitText, counters, stacking cards (custom code)
+   MOTION — block 2: counters, stacking cards (custom code)
    ========================================================================== */
 function initMotionAdvanced(mm) {
   mm.add("(prefers-reduced-motion: no-preference)", function () {
-    /* Hero headline — line mask reveal */
-    document.fonts.ready.then(function () {
-      document.querySelectorAll("[data-split]").forEach(function (el) {
-        SplitText.create(el, {
-          type: "lines", mask: "lines", autoSplit: true,
-          onSplit: function (self) {
-            return gsap.from(self.lines, { yPercent: 110, duration: 1.1, stagger: 0.1, ease: "power4.out", delay: 0.2 });
-          },
-        });
-      });
-
-    });
-
     /* Counters */
     document.querySelectorAll("[data-count]").forEach(function (el) {
       var target = parseFloat(el.dataset.count);
